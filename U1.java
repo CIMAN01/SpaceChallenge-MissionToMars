@@ -1,3 +1,4 @@
+
 /**  Udacity Java Course - Space Challenge Project: Mission To Mars
  **  by CIMAN01 (December 2017)
  **/
@@ -31,12 +32,14 @@ public class U1 extends Rocket {
 
     // Constructor
     public U1() {
+        
         rocketCost = 100;     // rocket Cost = $100 Million
         rocketWeight = 10000;       // rocket Weight = 10000 kilograms
         rocketMaxWeight = 18000;    // rocket Max weight (with cargo) = 18000 kilograms
         currentRocketWeight = rocketWeight;
         cargoLimit = rocketMaxWeight - rocketWeight; // 8000 kilograms
         cargoCarried = currentRocketWeight - rocketWeight;
+        
     }
 
     // override the launch method to calculate the corresponding chance of exploding
