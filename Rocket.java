@@ -35,7 +35,12 @@ public class Rocket implements SpaceShip {
 
     // Constructor
     public Rocket() {
-        currentRocketWeight = rocketWeight;
+        rocketCost = 0;
+        rocketWeight = 0;
+        rocketMaxWeight = 0;
+        currentRocketWeight = 0;
+        cargoLimit = 0;
+        cargoCarried = 0;
     }
 
     // indicates whether or not launch is successful (overridden by U1/U2 class)
