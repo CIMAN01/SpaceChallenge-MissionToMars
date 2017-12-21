@@ -37,8 +37,9 @@ public class U2 extends Rocket {
         rocketCost = 120000000;     // rocket Cost = $120 Million
         rocketWeight = 18000;       // rocket Weight = 18000 kilograms
         rocketMaxWeight = 29000;    // rocket Max weight (with cargo) = 29000 kilograms
-
+        currentRocketWeight = rocketWeight;
         cargoLimit = rocketMaxWeight - rocketWeight; // 11000 kilograms
+        cargoCarried = currentRocketWeight - rocketWeight;
 
     }
 
