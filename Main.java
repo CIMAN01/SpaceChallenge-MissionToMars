@@ -45,7 +45,7 @@ public class Main {
 
         // Run the simulation using the fleet of U2 rockets and display the total budget required.
         int u2TotalBudget = simulation.runSimulation(u2PhaseOne) + simulation.runSimulation(u2PhaseTwo);
-        System.out.println("the total budget required (U2 rockets) is: $" + u1TotalBudget + " Million.");
+        System.out.println("the total budget required (U2 rockets) is: $" + u2TotalBudget + " Million.");
 
     }
 
