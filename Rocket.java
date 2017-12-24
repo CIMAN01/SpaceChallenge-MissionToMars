@@ -16,34 +16,30 @@ Create a class Rocket that implements the SpaceShip Interface and hence implemen
 
 **/
 
-import java.util.*;
-
 public class Rocket implements SpaceShip {
 
-    public int rocketCost;                  // rocket Cost
+    protected int rocketCost;                  // rocket Cost
 
-    public int rocketWeight;                // rocket Weight
-    public int rocketMaxWeight;             // rocket Max Weight (with cargo) in kilograms
-    public int currentRocketWeight;         // rocket Current Weight (with cargo) in kilograms
+    protected int rocketWeight;                // rocket Weight
+    protected int maxWeight;                   // Max weight (with cargo) in kilograms
+    protected int currentRocketWeight;         // rocket Current Weight (with cargo) in kilograms
 
-    public int cargoCarried;                // Rocket cargo Carried in kilograms
-    public int cargoLimit;                  // rocket Cargo Limit in kilograms
+    protected int cargoCarried;                // rocket Cargo Carried in kilograms
+    protected int cargoLimit;                  // rocket Cargo Limit in kilograms
 
-    public double chanceOfExplosion;        // Chance of launch explosion
-    public double chanceOfCrash;            // Chance of landing crash
+    protected double chanceOfExplosion;        // Chance of launch explosion
+    protected double chanceOfCrash;            // Chance of landing crash
 
-    public double percent;
+    protected float percent;
 
     // Constructor
     public Rocket() {
-       
         rocketCost = 0;
         rocketWeight = 0;
-        rocketMaxWeight = 0;
+        maxWeight = 0;
         currentRocketWeight = 0;
         cargoLimit = 0;
         cargoCarried = 0;
-       
     }
 
     // indicates whether or not launch is successful (overridden by U1/U2 class)
@@ -58,8 +54,8 @@ public class Rocket implements SpaceShip {
 
     // a method that takes an Item as an argument and returns true if the rocket can carry
     // such item or false if it will exceed the weight limit.
-    public boolean canCarry(Item item){
-        if ((currentRocketWeight + item.weight) <= rocketMaxWeight) {
+    public final boolean canCarry(Item item){
+        if ((currentRocketWeight + item.weight) <= maxWeight) {
             return true;
         } else {
             System.out.println("Warning: rocket exceeds the weight limit");
@@ -69,10 +65,11 @@ public class Rocket implements SpaceShip {
     }
 
     // a method that also takes an Item object and updates the current weight of the rocket.
-    public int carry(Item item) {
+    public final void carry(Item item) {
+
         currentRocketWeight += item.weight;
-        System.out.println(String.format("Current rocket weight is: %d", currentRocketWeight));
-        return currentRocketWeight;
+        System.out.println("Current rocket weight is: " + currentRocketWeight + " kilogram");
+
     }
 
     // a method that returns the cost of the rocket.
