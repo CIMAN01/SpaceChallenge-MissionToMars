@@ -24,29 +24,30 @@ based on a random number using the probability equation for each.
 
 **/
 
-import java.util.*;
+import java.lang.*;
 
 public class U2 extends Rocket {
-
-    private Random random = new Random();
-    private double chance = random.nextDouble();
 
     // Constructor
     public U2() {
 
-        rocketCost = 120000000;     // rocket Cost = $120 Million
-        rocketWeight = 18000;       // rocket Weight = 18000 kilograms
-        rocketMaxWeight = 29000;    // rocket Max weight (with cargo) = 29000 kilograms
+        rocketCost = 120; // rocket Cost = $120 Million
+        rocketWeight = 18000; // rocket Weight = 18000 kilograms
+        maxWeight = 29000; // Max weight (with cargo) = 29000 kilograms
         currentRocketWeight = rocketWeight;
-        cargoLimit = rocketMaxWeight - rocketWeight; // 11000 kilograms
-        cargoCarried = currentRocketWeight - rocketWeight;
+        cargoLimit = maxWeight;
+        cargoCarried = currentRocketWeight;
 
     }
 
     // override the launch method to calculate the corresponding chance of exploding
     public boolean launch() {
-        percent = 0.04;
+
+        // Random Number between 0 and 0.999...
+        double chance = Math.random();
+
         // Chance of launch explosion = 4% * (cargo carried / cargo limit)
+        percent = 4/100f;
         chanceOfExplosion = percent *  ( (double)cargoCarried / (double)cargoLimit);
 
         if (chanceOfExplosion >= chance) {
@@ -63,9 +64,11 @@ public class U2 extends Rocket {
     // override the land method to calculate the corresponding chance of crash
     public boolean land() {
 
-        percent = 0.08;
+        // Random Number between 0 and 0.999...
+        double chance = Math.random();
 
         // Chance of landing crash = 8% * (cargo carried / cargo limit)
+        percent = 8/100f;
         chanceOfCrash = percent * ((double) cargoCarried / (double) cargoLimit);
 
         if (chanceOfCrash >= chance) {
