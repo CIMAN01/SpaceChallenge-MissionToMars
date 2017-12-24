@@ -12,7 +12,7 @@ landing than while launching, but just like the U-1 both chances depend on the a
 Rocket Specifications:
 -----------------------------------------------------------------
 Rocket cost = $120 Million
-Rocket weight = 18 Tonnes   --> we will work with 18 not 20! (see up!)
+Rocket weight = 20 Tonnes
 Max weight (with cargo) = 29 Tonnes
 Chance of launch explosion = 4% * (cargo carried / cargo limit)
 Chance of landing crash = 8% * (cargo carried / cargo limit)
@@ -32,7 +32,7 @@ public class U2 extends Rocket {
     public U2() {
 
         rocketCost = 120; // rocket Cost = $120 Million
-        rocketWeight = 18000; // rocket Weight = 18000 kilograms
+        rocketWeight = 20000; // rocket Weight = 20000 kilograms
         maxWeight = 29000; // Max weight (with cargo) = 29000 kilograms
         currentRocketWeight = rocketWeight;
         cargoLimit = maxWeight;
