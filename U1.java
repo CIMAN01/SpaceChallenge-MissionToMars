@@ -25,33 +25,32 @@ based on a random number using the probability equation for each.
 
 **/
 
-import java.util.*;
 import java.lang.*;
 
 public class U1 extends Rocket {
 
     // Constructor
     public U1() {
-        
-        rocketCost = 100;     // rocket Cost = $100 Million
-        rocketWeight = 10000;       // rocket Weight = 10000 kilograms
-        rocketMaxWeight = 18000;    // rocket Max weight (with cargo) = 18000 kilograms
+
+        rocketCost = 100; // rocket Cost = $100 Million
+        rocketWeight = 10000; // rocket Weight = 10000 kilograms
+        maxWeight = 18000; // Max weight (with cargo) = 18000 kilograms
         currentRocketWeight = rocketWeight;
-        cargoLimit = rocketMaxWeight - rocketWeight; // 8000 kilograms
-        cargoCarried = currentRocketWeight - rocketWeight;
-        
+        cargoLimit = maxWeight;
+        cargoCarried = currentRocketWeight;
+
     }
 
     // override the launch method to calculate the corresponding chance of exploding
     public boolean launch() {
 
         // Random Number between 0 and 0.999...
-        double chance = (Math.random() * 100) + 1;
+        double chance = Math.random();
 
         // Chance of launch explosion = 5% * (cargo carried / cargo limit)
-        percent = 0.05;
-        chanceOfExplosion = percent *  ( (double)cargoCarried / (double)cargoLimit);
-
+        percent = 5/100f;
+        chanceOfExplosion = percent * ((double) cargoCarried / (double) cargoLimit);
+        //System.out.println(chanceOfExplosion);
         if (chanceOfExplosion >= chance) {
             System.out.println("U1 Exploded!");
             return false;
@@ -65,10 +64,10 @@ public class U1 extends Rocket {
     public boolean land() {
 
         // Random Number between 0 and 0.999...
-        double chance = (Math.random() * 100) + 1;
+        double chance = Math.random();
 
         // Chance of landing crash = 1% * (cargo carried / cargo limit)
-        percent = 0.01;
+        percent = 1/100f;
         chanceOfCrash = percent * ((double) cargoCarried / (double) cargoLimit);
 
         if (chanceOfCrash >= chance) {
